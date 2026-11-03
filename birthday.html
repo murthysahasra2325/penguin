@@ -1,0 +1,325 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Warm Wishes </title>
+
+<style>
+
+/* EDIT BACKGROUND COLOURS HERE */
+
+body {
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ffe4ec, #fff4dc);
+    color: #60443f;
+}
+
+.card {
+    width: 100%;
+    max-width: 550px;
+    min-height: 550px;
+    padding: 25px;
+    background: white;
+    border: 7px solid #fff0f3;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 10px 30px #d9a5b5;
+    position: relative;
+}
+
+h1 {
+    color: #c66f83;
+    font-size: 35px;
+}
+
+h2 {
+    color: #a95752;
+}
+
+p {
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.hidden {
+    display: none;
+}
+
+button {
+    background: #e77d91;
+    color: white;
+    border: none;
+    padding: 13px 22px;
+    margin: 10px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #c85e78;
+}
+
+/* PENGUIN SECTION */
+
+.penguins {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.penguin {
+    background: #fff2f4;
+    color: #80504c;
+    border: 2px solid pink;
+    border-radius: 20px;
+    width: 140px;
+    min-height: 170px;
+}
+
+.penguin:hover {
+    transform: translateY(-5px);
+}
+
+.emoji {
+    display: block;
+    font-size: 65px;
+}
+
+.message-box {
+    background: #fff1f3;
+    padding: 20px;
+    border-radius: 20px;
+    margin: 20px 0;
+    border: 2px dashed pink;
+}
+
+.big-emoji {
+    font-size: 75px;
+}
+
+/* FLOATING DECORATIONS */
+
+.decoration {
+    font-size: 25px;
+    animation: float 3s infinite ease-in-out;
+}
+
+@keyframes float {
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<!-- PAGE 1: GIFT ACCEPTANCE -->
+
+<section id="welcome">
+
+    <div class="big-emoji">🎁</div>
+
+    <!-- EDIT YOUR NAME HERE -->
+
+    <h2>A little surprise for YOU!</h2>
+
+    <h1>I Love You</h1>
+
+    <p>
+       Every moment felt magical with you
+    </p>
+
+    <button onclick="showPage('choose')">
+         MY GIFT FOR MY KUCHUPUCHU 🎀
+    </button>
+
+</section>
+
+
+<!-- PAGE 2: CHOOSE A PENGUIN -->
+
+<section id="choose" class="hidden">
+
+    <h1>Happy Birthday! 🎂</h1>
+
+    <h2>Choose a Penguin</h2>
+
+    <p>Each one has something special to say ✨</p>
+
+    <div class="penguins">
+
+        <button class="penguin"
+        onclick="showMessage(0)">
+
+            <span class="emoji">🐧</span>
+            Penguin 1
+
+        </button>
+
+        <button class="penguin"
+        onclick="showMessage(1)">
+
+            <span class="emoji">🐧</span>
+            Penguin 2
+
+        </button>
+
+        <button class="penguin"
+        onclick="showMessage(2)">
+
+            <span class="emoji">🐧</span>
+            Penguin 3
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- PAGE 3: PENGUIN MESSAGES -->
+
+<section id="message" class="hidden">
+
+    <div class="big-emoji" id="messageEmoji">
+        🐧
+    </div>
+
+    <h1 id="messageTitle"></h1>
+
+    <div class="message-box">
+
+        <p id="messageText"></p>
+
+    </div>
+
+    <button onclick="showPage('choose')">
+        Meet Penguins Again🐧
+    </button>
+
+   
+
+</section>
+
+
+<!-- PAGE 4: FINAL SURPRISE -->
+
+<section id="final" class="hidden">
+
+    <div class="big-emoji">💖🐧💖</div>
+
+    <h1>Happy Birthday Once Again!</h1>
+
+    <h2>You Are Special! ❤️</h2>
+
+    <div class="message-box">
+
+        <p>
+            May your life be filled with happiness,
+            beautiful memories, laughter and love.
+        </p>
+
+        <p>
+            Keep smiling and keep shining.
+            You deserve all the happiness
+            in the world!
+        </p>
+
+        <h2>Sending You A Big Virtual Hug! 🫂</h2>
+
+    </div>
+
+    <button onclick="showPage('choose')">
+        Meet Penguins Again 🐧
+    </button>
+
+</section>
+
+</div>
+
+
+<script>
+
+/* CHANGE YOUR PENGUIN MESSAGES HERE */
+
+const messages = [
+
+    {
+        emoji: "🐧",
+
+        title: "A Birthday Wish!",
+
+        text: " Many More Happy returns of the bangaram.May your year be as bright as you.May your life always be surronded by my love.No matter how many birthdays pass,I hope I get to celebrate countless more with you.I love you🎉 "
+    },
+
+    {
+        emoji: "🐧",
+
+        title: "A Little Love!",
+
+        text: "Some people come into our life our lives and make everything a little  more beautiful.Your persence makes my day brighter.A moment with felt magical.I will wish to see you winning in life.Love you bangaram ❤️"
+    },
+
+    {
+        emoji: "🐧",
+
+        title: "Will you be my penguin!",
+
+        text: "Penguins find their special one,stay together for life.I don't need a thousand love stories .I just want one - ours.Will you be my penguin,my once in a lifetime love? "
+    }
+
+];
+
+
+/* FUNCTION TO CHANGE PAGES */
+
+function showPage(pageId) {
+
+    document.querySelectorAll("section").forEach(section => {
+
+        section.classList.add("hidden");
+
+    });
+
+    document.getElementById(pageId).classList.remove("hidden");
+
+}
+
+
+/* FUNCTION TO DISPLAY PENGUIN MESSAGE */
+
+function showMessage(index) {
+
+    document.getElementById("messageEmoji").innerText =
+        messages[index].emoji;
+
+    document.getElementById("messageTitle").innerText =
+        messages[index].title;
+
+    document.getElementById("messageText").innerText =
+        messages[index].text;
+
+    showPage("message");
+
+}
+
+</script>
+
+</body>
+</html>
